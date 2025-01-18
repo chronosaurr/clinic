@@ -1,11 +1,8 @@
 #include "menu.h"
+#include "engine.h"
 #include <iostream>
 
-Menu::Menu() {
-    // Dodajmy przykładowych pacjentów do testów
-    patients.push_back({"Anna", "Kowalska", "12345678901"});
-    patients.push_back({"Jan", "Nowak", "98765432101"});
-}
+Menu::Menu(Engine& eng) : engine(eng) {}
 
 void Menu::display() const {
     int choice;
@@ -37,6 +34,8 @@ Select an option: )";
 }
 
 void Menu::displayPatients() const {
+    const auto& patients = engine.getPatients();
+
     if (patients.empty()) {
         std::cout << "No patients found.\n";
         return;
