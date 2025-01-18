@@ -8,7 +8,6 @@
 // Możliwość dodawania nowych wizyt.
 
 
-
 int main(){
     Menu menu;
     menu.display();
