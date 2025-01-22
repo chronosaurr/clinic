@@ -20,7 +20,7 @@ void Engine::loadPatientsFromFile(const std::string& filename) {
             patient.pesel = item["pesel"].get<std::string>();
             patients.push_back(patient);
 
-            // Odczyt wizyt (jeśli istnieją)
+            // reading visits if they exist ofc
             if (item.contains("visits")) {
                 for (const auto& visitItem : item["visits"]) {
                     Visit visit;
@@ -54,7 +54,7 @@ void Engine::savePatientsToFile(const std::string& filename) const {
             {"visits", nlohmann::json::array()}
         };
 
-        // Dodanie wizyt do pacjenta
+        // adding visits to the patient
         if (visits.find(patient.pesel) != visits.end()) {
             for (const auto& visit : visits.at(patient.pesel)) {
                 patientData["visits"].push_back({

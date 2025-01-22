@@ -18,20 +18,19 @@ struct Visit {
 
 class Engine {
 private:
-    std::vector<Patient> patients; // Lista pacjentów
-    std::unordered_map<std::string, std::vector<Visit>> visits; // Mapowanie PESEL -> Wizyty
+    std::vector<Patient> patients; // Patient list
+    std::unordered_map<std::string, std::vector<Visit>> visits; // Mapowanie PESEL -> Visits
 
 public:
+    // patients and all about em
+    void loadPatientsFromFile(const std::string& filename); // Reading patient list from JSON file
+    void savePatientsToFile(const std::string& filename) const; // Saving patients to JSON file
+    const std::vector<Patient>& getPatients() const; // Gives back the patient list
+    void addPatient(const Patient& patient); // Adding new patients
 
-    // Pacjenci co i jak
-    void loadPatientsFromFile(const std::string& filename); // Odczyt pacjentów z pliku JSON
-    void savePatientsToFile(const std::string& filename) const; // Zapis pacjentów do pliku JSON
-    const std::vector<Patient>& getPatients() const; // Zwraca listę pacjentów
-    void addPatient(const Patient& patient); // Dodawanie nowego pacjenta
-
-    // Wizyty co i jak
-    void addVisit(const std::string& pesel, const Visit& visit); // Dodawanie wizyty dla pacjenta
-    const std::vector<Visit>& getVisits(const std::string& pesel) const; // Pobranie wizyt pacjenta
+    // visits and all about em
+    void addVisit(const std::string& pesel, const Visit& visit); // Adding new visits to a patient
+    const std::vector<Visit>& getVisits(const std::string& pesel) const; // Gives back visits of a patient
 };
 
 #endif // ENGINE_H

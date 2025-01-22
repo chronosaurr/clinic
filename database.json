@@ -3,17 +3,82 @@
         {
             "firstName": "Anna",
             "lastName": "Kowalska",
-            "pesel": "12345678901"
+            "pesel": "12345678901",
+            "visits": [
+                {
+                    "date": "2024-03-23",
+                    "diagnosis": "fractured skull"
+                },
+                {
+                    "date": "2025-05-25",
+                    "diagnosis": "cold"
+                },
+                {
+                    "date": "2025-05-05",
+                    "diagnosis": "depression"
+                },
+                {
+                    "date": "2026-06-23",
+                    "diagnosis": "osteoporosis"
+                }
+            ]
         },
         {
             "firstName": "Jan",
             "lastName": "Nowak",
-            "pesel": "98765432101"
+            "pesel": "98765432101",
+            "visits": [
+                {
+                    "date": "2025-04-21",
+                    "diagnosis": "social anxiety"
+                },
+                {
+                    "date": "2025-05-05",
+                    "diagnosis": "death"
+                }
+            ]
         },
         {
             "firstName": "Miku",
             "lastName": "Hatsune",
-            "pesel": "05183112345"
+            "pesel": "05183112345",
+            "visits": [
+                {
+                    "date": "2026-04-23",
+                    "diagnosis": "overdosing"
+                },
+                {
+                    "date": "2025-05-05",
+                    "diagnosis": "cold"
+                },
+                {
+                    "date": "2025-05-05",
+                    "diagnosis": "existing"
+                }
+            ]
+        },
+        {
+            "firstName": "Geto",
+            "lastName": "Suguru",
+            "pesel": "12341234123",
+            "visits": [
+                {
+                    "date": "2025-05-05",
+                    "diagnosis": "depression"
+                },
+                {
+                    "date": "2025-05-05",
+                    "diagnosis": "cold"
+                },
+                {
+                    "date": "2025-12-07",
+                    "diagnosis": "headache"
+                },
+                {
+                    "date": "2026-04-23",
+                    "diagnosis": "starting a cult :3"
+                }
+            ]
         }
     ]
 }
