@@ -27,6 +27,9 @@ Select an option:
             case 3:
                 addNewPatient();
             break;
+            case 4:
+                engine.addVisit();
+            break;
             case 0:
                 std::cout << "Exiting application.\n";
             break;
