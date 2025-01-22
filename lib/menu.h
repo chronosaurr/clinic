@@ -5,9 +5,10 @@
 
 class Menu {
 private:
-    Engine& engine; // Referencja do silnika aplikacji
+    Engine& engine; // Ref do silnika aplikacji
 
     void displayPatients() const; // Wyświetlenie listy pacjentów
+    void addNewPatient() const; // adding a new patient
 
 public:
     explicit Menu(Engine& eng);

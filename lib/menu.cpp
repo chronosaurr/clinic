@@ -16,12 +16,16 @@ void Menu::display() const {
  5. Add a visit
  6. Import data
  0 - Exit
-Select an option: )";
+Select an option:
+)";
         std::cin >> choice;
 
         switch (choice) {
             case 1:
                 displayPatients();
+            break;
+            case 3:
+                addNewPatient();
             break;
             case 0:
                 std::cout << "Exiting application.\n";
@@ -47,3 +51,21 @@ void Menu::displayPatients() const {
                   << ", PESEL: " << patient.pesel << "\n";
     }
 }
+
+void Menu::addNewPatient() const {
+    Patient patient;
+
+    std::cout << "Enter first name: ";
+    std::cin >> patient.firstName;
+
+    std::cout << "Enter last name: ";
+    std::cin >> patient.lastName;
+
+    std::cout << "Enter PESEL: ";
+    std::cin >> patient.pesel;
+
+    engine.addPatient(patient);
+    engine.savePatientsToFile("database.json");
+}
+
+
