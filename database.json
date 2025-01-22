@@ -45,7 +45,7 @@
             "visits": [
                 {
                     "date": "2026-04-23",
-                    "diagnosis": "overdosing"
+                    "diagnosis": "sore throat"
                 },
                 {
                     "date": "2025-05-05",
@@ -72,11 +72,41 @@
                 },
                 {
                     "date": "2025-12-07",
-                    "diagnosis": "headache"
+                    "diagnosis": "headache - his best friend kinda died"
                 },
                 {
                     "date": "2026-04-23",
                     "diagnosis": "starting a cult :3"
+                }
+            ]
+        },
+        {
+            "firstName": "Laios",
+            "lastName": "Touden",
+            "pesel": "48826110000",
+            "visits": [
+                {
+                    "date": "2025-02-01",
+                    "diagnosis": "autism diagnosis"
+                },
+                {
+                    "date": "2026-04-12",
+                    "diagnosis": "sister got eaten by a dragon"
+                }
+            ]
+        },
+        {
+            "firstName": "Zbigniew",
+            "lastName": "Paleta",
+            "pesel": "09081012343",
+            "visits": [
+                {
+                    "date": "2026-02-12",
+                    "diagnosis": "adhd"
+                },
+                {
+                    "date": "2026-02-14",
+                    "diagnosis": "heart problems </3"
                 }
             ]
         }
