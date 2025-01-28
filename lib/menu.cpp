@@ -37,7 +37,7 @@ Select an option:
                 std::cout << "Invalid choice. Please try again.\n";
             break;
         }
-    } while (choice != 0);
+    } while (choice != 0); // repeating as long as the user doesnt exit
 }
 
 void Menu::displayPatients() const {
@@ -51,7 +51,7 @@ void Menu::displayPatients() const {
     std::cout << "\n=== List of Patients ===\n";
     for (const auto& patient : patients) {
         std::cout << "Name: " << patient.firstName << " " << patient.lastName
-                  << ", PESEL: " << patient.pesel << "\n";
+                  << ", PESEL: " << patient.pesel << "\n"; // when no issues encountered displays saved patients
     }
 }
 
@@ -64,7 +64,7 @@ void Menu::addNewPatient() const {
     std::cout << "Enter last name: ";
     std::cin >> patient.lastName;
 
-    std::cout << "Enter PESEL: ";
+    std::cout << "Enter PESEL: "; // teoretycznie powinien byc warunek ze pesel musi miec 11 cyfer ale zapomnialam o tym wiec nie ma tego warunku rip
     std::cin >> patient.pesel;
 
     engine.addPatient(patient);
