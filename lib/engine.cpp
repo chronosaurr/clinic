@@ -1,7 +1,7 @@
 #include "engine.h"
 #include <iostream>
 #include <fstream>
-#include <unordered_map>
+#include <unordered_map> // allows key values and unique pairing such as finding by pesel
 
 void Engine::loadPatientsFromFile(const std::string& filename) {
     std::ifstream file(filename);
@@ -32,13 +32,13 @@ void Engine::loadPatientsFromFile(const std::string& filename) {
         }
         std::cout << "Patients loaded successfully from " << filename << "\n";
     } catch (const std::exception& e) {
-        std::cerr << "Error parsing JSON file: " << e.what() << "\n";
+        std::cerr << "Error parsing JSON file: " << e.what() << "\n"; // returning error message from cerr and e.what()
     }
 }
 
 void Engine::savePatientsToFile(const std::string& filename) const {
     std::ofstream file(filename);
-    if (!file.is_open()) {
+    if (!file.is_open()) {  //for displaying an error message 
         std::cerr << "Failed to open file for writing: " << filename << "\n";
         return;
     }
@@ -54,7 +54,7 @@ void Engine::savePatientsToFile(const std::string& filename) const {
             {"visits", nlohmann::json::array()}
         };
 
-        // adding visits to the patient
+         // adding visits to the patient and getting the info from user
         if (visits.find(patient.pesel) != visits.end()) {
             for (const auto& visit : visits.at(patient.pesel)) {
                 patientData["visits"].push_back({
@@ -70,7 +70,10 @@ void Engine::savePatientsToFile(const std::string& filename) const {
         file << jsonData.dump(4); // Zapis z wcięciem 4 spacji
         std::cout << "Patients and visits saved successfully to " << filename << "\n";
     } catch (const std::exception& e) {
-        std::cerr << "Error writing to JSON file: " << e.what() << "\n";
+        std::cerr << "Error writing to JSON file: " << e.what() << "\n"; //e.what - returns a string that describes 
+        // the error or exceptional event that occurred, cerr returns an error message
+
+
     }
 }
 
@@ -86,7 +89,8 @@ void Engine::addPatient(const Patient& patient) {
         }
     }
     patients.push_back(patient);
-    std::cout << "Patient " << patient.firstName << " " << patient.lastName << " added successfully.\n";
+    std::cout << "Patient " << patient.firstName << " " << patient.lastName << " added successfully.\n"; //if no errors occurred during the proces returns 
+    //a new patient with all their information 
 }
 
 void Engine::addVisit(const std::string& pesel, const Visit& visit) {
@@ -95,7 +99,7 @@ void Engine::addVisit(const std::string& pesel, const Visit& visit) {
     });
 
     if (it == patients.end()) {
-        std::cerr << "Patient with PESEL " << pesel << " not found.\n";
+        std::cerr << "Patient with PESEL " << pesel << " not found.\n"; // standardowo atp shows error message if procedure had failed
         return;
     }
 
@@ -109,5 +113,5 @@ const std::vector<Visit>& Engine::getVisits(const std::string& pesel) const {
     if (it != visits.end()) {
         return it->second;
     }
-    return emptyVisits;
+    return emptyVisits; // for no visits saved under specified pesel returns no visits 
 }
